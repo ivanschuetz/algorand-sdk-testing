@@ -1,8 +1,8 @@
 Feature: Indexer Integration Tests
 
-  For all queries, parameters will not be set for default values as defined by:
-    * Numeric inputs: 0
-    * String inputs: ""
+  # For all queries, parameters will not be set for default values as defined by:
+  #   * Numeric inputs: 0
+  #   * String inputs: ""
 
   Background:
     Given indexer client 1 at "localhost" port 59999 with token "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
@@ -439,7 +439,7 @@ Feature: Indexer Integration Tests
       | 1       | 0           | OSY2LBBSYJXOBAO6T5XGMGAJM77JVPQ7OLRR5J3HEPC3QWBTQZNWSEZA44 |          |      | 1   | 9            |
       | 1       | 0           |                                                            | none     |      | 0   | 9            |
   
-  @indexer.applications
+  # @indexer.applications
   Scenario Outline: /applications?id=<application-id>&limit=<limit>&next=<token>
     When I use <indexer> to search for applications with <limit>, <application-id>, and token "<token>"
     Then the parsed response should equal "<jsonfile>".
@@ -451,7 +451,7 @@ Feature: Indexer Integration Tests
       | 2       | 0              | 3     |       | v2indexerclient_responsejsons/indexer_v2_app_search_limit_3.json |
       | 2       | 0              | 1     | 25    | v2indexerclient_responsejsons/indexer_v2_app_search_next_25.json |
 
-  @indexer.231
+  # @indexer.231
   Scenario Outline: /applications?id=<application-id>&limit=<limit>&next=<token>
     When I use <indexer> to search for applications with <limit>, <application-id>, "<include-all>" and token "<token>"
     Then the parsed response should equal "<jsonfile>".
@@ -466,7 +466,7 @@ Feature: Indexer Integration Tests
       | 4       | 0              | 3     | true        |       | v23x_indexerclient_responsejsons/indexer_v2_app_search_limit_3_all.json |
       | 4       | 0              | 1     | true        | 25    | v23x_indexerclient_responsejsons/indexer_v2_app_search_next_25_all.json |
 
-  @indexer.applications
+  # @indexer.applications
   Scenario Outline: /applications/<application-id>
     When I use <indexer> to lookup application with <application-id>
     Then the parsed response should equal "<jsonfile>".
@@ -476,7 +476,7 @@ Feature: Indexer Integration Tests
       | 2       | 22             |  v2indexerclient_responsejsons/indexer_v2_app_lookup_22.json |
       | 2       | 70             |  v2indexerclient_responsejsons/indexer_v2_app_lookup_70.json |
 
-  @indexer.231
+  # @indexer.231
   Scenario Outline: /applications/<application-id>
     When I use <indexer> to lookup application with <application-id> and "<include-all>"
     Then the parsed response should equal "<jsonfile>".
@@ -490,7 +490,7 @@ Feature: Indexer Integration Tests
   #
   # /transactions
   #
-  @indexer.applications
+  # @indexer.applications
   Scenario Outline: /transactions?everything
     #When I use <indexer> to search for transactions with <limit>, "<note-prefix>", "<tx-type>", "<sig-type>", "<tx-id>", <round>, <min-round>, <max-round>, <asset-id>, "<before-time>", "<after-time>", <currency-gt>, <currency-lt>, "<address>", "<address-role>", "<exclude-close-to>", <application-id> and token "<token>"
     When I use <indexer> to search for transactions with <limit>, "", "", "", "", 0, 0, 0, 0, "", "", 0, 0, "", "", "", <application-id> and token ""
@@ -503,7 +503,7 @@ Feature: Indexer Integration Tests
       | 4       | 0     | 70             | v23x_indexerclient_responsejsons/indexer_v2_tx_search_app_70.json       |
       | 4       | 3     | 70             | v23x_indexerclient_responsejsons/indexer_v2_tx_search_app_70_lim_3.json |
 
-  @indexer.applications
+  # @indexer.applications
   Scenario Outline: /accounts?asset-id=<asset-id>&limit=<limit>&gt=<currency-gt>&lt=<currency-lt>&auth-addr=<auth-addr>&app-id=<application-id>
     When I use <indexer> to search for an account with 0, 0, 0, 0, "", <application-id> and token ""
     Then the parsed response should equal "<jsonfile>".
@@ -512,7 +512,7 @@ Feature: Indexer Integration Tests
       | indexer | application-id | jsonfile                                                         |
       | 2       | 70             | v2indexerclient_responsejsons/indexer_v2_acct_search_app_70.json |
 
-  @indexer.231
+  # @indexer.231
   Scenario Outline: /accounts?asset-id=<asset-id>&limit=<limit>&gt=<currency-gt>&lt=<currency-lt>&auth-addr=<auth-addr>&app-id=<application-id>
     When I use <indexer> to search for an account with 0, 0, 0, 0, "", <application-id>, "<include-all>" and token ""
     Then the parsed response should equal "<jsonfile>".

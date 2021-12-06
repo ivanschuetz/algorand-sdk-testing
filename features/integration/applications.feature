@@ -5,7 +5,7 @@ Feature: Applications
       And wallet information
       And an algod v2 client connected to "localhost" port 60000 with token "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
-   @applications.verified
+   # @applications.verified
    Scenario Outline: <state-location> test - Use every applications feature!
       # Make these tests 'standalone'.
       # This should create a new, random account and save the public/private key for future steps to use.

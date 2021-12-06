@@ -30,7 +30,7 @@ Feature: Sending transactions
     | 0   | X4Bl4wQ9rCo= |
     | 1234523 | X4Bl4wQ9rCo= |
   
-  @send.keyregtxn
+  # @send.keyregtxn
   Scenario Outline: Sending key registration transactions
     Given default V2 key registration transaction "<type>"
     When I get the private key

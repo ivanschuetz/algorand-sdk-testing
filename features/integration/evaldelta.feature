@@ -9,7 +9,7 @@ Feature: EvalDelta
       And I create a new transient account and fund it with 100000000 microalgos.
       And indexer client 3 at "localhost" port 60002 with token "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 
-  @applications.evaldelta
+  # @applications.evaldelta
   Scenario Outline:Set '<arg>' in <state-location> state
       # Create app
       Given I build an application transaction with the transient account, the current application, suggested params, operation "create_optin", approval-program "<program>", clear-program "programs/one.teal.tok", global-bytes <global-bytes>, global-ints <global-ints>, local-bytes <local-bytes>, local-ints <local-ints>, app-args "<arg>", foreign-apps "", foreign-assets "", app-accounts "", extra-pages 0

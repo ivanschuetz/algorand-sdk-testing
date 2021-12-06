@@ -1,4 +1,4 @@
-@dryrun.testing
+# @dryrun.testing
 Feature: Dryrun Testing
   Background:
     Given an algod v2 client
